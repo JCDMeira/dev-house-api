@@ -1,0 +1,11 @@
+{
+  "name": "dev-house-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/JCDMeira/dev-house-api.git",
+  "author": "Jean Meira <jean.meira10@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
