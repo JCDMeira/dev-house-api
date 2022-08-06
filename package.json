@@ -6,8 +6,7 @@
   "author": "Jean Meira <jean.meira10@hotmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.1",
-    "nodemon": "^2.0.19"
+    "express": "^4.18.1"
   },
   "scripts": {
     "dev": "nodemon src/server.js"
@@ -16,6 +15,8 @@
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.7.1"
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
+    "sucrase": "^3.25.0"
   }
 }
