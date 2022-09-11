@@ -6,7 +6,7 @@ export default {
     destination: path.resolve(__dirname, '..', '..', 'uploads'),
     filename: (req, file, cd) => {
       const ext = path.extname(file.originalname);
-      const name = path.basename(file.originalname, ext);
+      const name = path.basename(file.originalname.replace(' ', ''), ext);
 
       cd(null, `${name}-${Date.now()}${ext}`);
     },
