@@ -1,4 +1,5 @@
 import House from '../models/House';
+import User from '../models/User';
 class HouseController {
   async index(req, res) {
     const { status } = req.query;
@@ -33,7 +34,15 @@ class HouseController {
       const { user_id } = req.headers;
       const fileNameWithoutSpaces = filename.replace(' ', '');
 
-      const house = await House.updateOne(
+      const user = await User.findById(user_id);
+      const houses = await House.findById(house_id);
+
+      if (String(user._id) !== String(houses.user)) {
+        console.log('batata');
+        return res.status(401).json({ msg: 'Não autorizado' });
+      }
+
+      await House.updateOne(
         { _id: house_id },
         {
           user: user_id,
@@ -45,9 +54,10 @@ class HouseController {
         },
       );
 
-      return res.json({ msg: 'succes', info: house && undefined });
+      return res.json({ msg: 'succes' });
     } catch (error) {
-      return res.json({ msg: error });
+      console.log('a');
+      return res.status(404).json({ msg: error });
     }
   }
 }
